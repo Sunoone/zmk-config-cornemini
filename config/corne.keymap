@@ -158,7 +158,7 @@
 			bindings = <
 				&mo MEDIA	&kp W		&kp E		&kp R		&kp K_APP				&kp Y			&kp HOME	&kp END		&kp PG_DN	&kp PG_UP
 				&mo TBD		&kp S		&kp F4		&kp F11		&kp LWIN				&kp TAB			&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT
-				&kp Z		&kp X		&kp C		&kp V		&sk LSHFT				&bspcdel		&sk RCTRL	&sk RALT	&sk META	&shiftcaps
+				&kp Z		&kp X		&kp C		&kp V		&sk LSHFT				&bspcdel		&sk RCTRL	&sk RALT	&kp RMETA	&shiftcaps
 										&sk LSHFT	&kp ESC		&trans					&trans			&sk RCTRL	&sk RALT
 			>;
 		};
