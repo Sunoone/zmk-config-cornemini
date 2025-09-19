@@ -10,9 +10,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-
-#define AS(keycode) &as LS(keycode) keycode
-
 #define MAIN 0
 #define CODE 1
 #define MATH 2
@@ -29,17 +26,7 @@
         zmk,physical-layout = &foostan_corne_5col_layout;
     };
 	
-    behaviors {		
-	
-		as: auto_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping_term_ms = <200>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-		
+    behaviors {	
 		// Tap: Backspace
 		// Shift-tap: -
 		// Double-tap: -
@@ -103,10 +90,10 @@
 		MAIN {
 			display-name = "Main";
 			bindings = <
-				&kp Q, 		&kp W, 		&kp E, 		&kp R,		&kp T,     				&kp Y,   		&kp U,  	&kp I, 		&kp O,    	&kp P,
-				&kp A, 		&kp S, 		&kp D, 		&kp F,		&kp G,     				&kp SEMI, 		&kp H,   	&kp J, 		&kp K,    	&kp L,    
-				&kp Z, 		&kp X, 		&kp C, 		&kp V,		&kp B,     				&bspcdel, 		&kp N,   	&kp M, 		&dotcomma,  &shiftcaps,
-										&sk LSHFT, 	&kp ESC,	&lt MATH SPACE,    		&lt CODE RET, 	&sk RCTRL,  &sk RALT
+				&kp Q		&kp W		&kp E		&kp R		&kp T					&kp Y			&kp U		&kp I		&kp O		&kp P
+				&kp A		&kp S		&kp D		&kp F		&kp G					kp SEMI			&kp H		&kp J		&kp K		&kp L    
+				&kp Z		&kp X		&kp C		&kp V		&kp B					&bspcdel		&kp N		&kp M		&dotcomma	&shiftcaps
+										&sk LSHFT	&kp ESC		&lt MATH SPACE			&lt CODE RET	&sk RCTRL	&sk RALT
 			>;
 		};
 		
@@ -125,10 +112,10 @@
 		CODE {
 			display-name = "Coding...";
 			bindings = <
-				&kp F5,	 	&kp AMPS,  	&kp ASTRK,  &kp PLUS,   &kp DLLR,      			&kp LBKT,    	&kp LBRC,	&kp SQT, 	&kp RBRC,	&kp RBKT,
-				&kp EQUAL, 	&kp BSLH, 	&kp FSLH,  	&kp MINUS, 	&kp EXCL,    			&kp COLON, 		&kp LPA,  	&kp DQT, 	&kp RPAR,	&kp EQUAL,
-				&kp AT,	 	&kp HASH,	&kp DOT,	&kp COMMA,  &kp QMARK,				&bspcdel,  		&kp LT,  	&kp GRAVE,	&kp GT,		&shiftcaps,
-										&sk LSHFT, 	&kp TAB,	&trans,		   			&trans,			&sk RCTRL, 	&sk RALT 
+				&kp F5		&kp AMPS	&kp ASTRK	&kp PLUS	&kp DLLR				&kp LBKT		&kp LBRC	&kp SQT		&kp RBRC	&kp RBKT
+				&kp EQUAL	&kp BSLH	&kp FSLH	&kp MINUS	&kp EXCL,    			&kp COLON		&kp LPA		&kp DQT		&kp RPAR	&kp EQUAL
+				&kp AT		&kp HASH	&kp DOT		&kp COMMA	&kp QMARK				&bspcdel		&kp LT		&kp GRAVE	&kp GT		&shiftcaps
+										&sk LSHFT	&kp TAB		&trans					&trans			&sk RCTRL	&sk RALT 
 			>;
 		};
 
@@ -147,10 +134,10 @@
 		MATH {
 			display-name = "Mathing...";
 			bindings = <
-				&kp F5,     &kp AMPS,  	&kp ASTRK,   &kp PLUS,	&kp CARET,				&kp RPAR,		&kp N1,		&kp N2,		&kp N3,		&trans
-				&kp EQUAL,	&kp PIPE,	&kp FSLH,	&kp MINUS,	&kp EXCL,				&kp SEMI,		&kp N4,		&kp N5,		&kp N6,		&kp N0
-				&kp TILDE,  &kp PRCNT,	&kp LT,  	&kp GT,  	&kp DOT,				&bspcdel,		&kp N7,		&kp N8,		&kp N9,		&shiftcaps 
-										&sk LSHFT,  &kp ESC,    &trans,		       		&trans,			&kp TAB,	&kp RALT
+				&kp F5		&kp AMPS	&kp ASTRK	&kp PLUS	&kp CARET				&kp RPAR		&kp N1		&kp N2		&kp N3		&trans
+				&kp EQUAL	&kp PIPE	&kp FSLH	&kp MINUS	&kp EXCL				&kp SEMI		&kp N4		&kp N5		&kp N6		&kp N0
+				&kp TILDE	&kp PRCNT	&kp LT		&kp GT		&kp DOT					&bspcdel		&kp N7		&kp N8		&kp N9		&shiftcaps 
+										&sk LSHFT	&kp ESC		&trans					&trans			&kp TAB		&kp RALT
 			>;
 		};
 
@@ -169,20 +156,20 @@
 		NAVIGATION {
 			display-name = "Navigating...";
 			bindings = <
-				&mo MEDIA,	&kp W,		&kp E,		&kp R,		&kp K_APP,				&kp Y,			&kp HOME,	&kp END,	&kp PG_DN,	&kp PG_UP
-				&mo TBD,	&kp S,		&kp F4,		&kp F11,	&kp LWIN,				&kp TAB,		&kp LEFT,	&kp DOWN,	&kp UP,		&kp RIGHT
-				&kp Z,		&kp X,		&kp C,		&kp V,		&sk LSHFT,				&bspcdel,		&sk RCTRL,	&sk RALT,	&sk META,	&shiftcaps
-										&sk LSHFT,	&kp ESC,	&trans,					&trans,			&sk RCTRL,	&sk RALT
+				&mo MEDIA	&kp W		&kp E		&kp R		&kp K_APP				&kp Y			&kp HOME	&kp END		&kp PG_DN	&kp PG_UP
+				&mo TBD		&kp S		&kp F4		&kp F11		&kp LWIN				&kp TAB			&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT
+				&kp Z		&kp X		&kp C		&kp V		&sk LSHFT				&bspcdel		&sk RCTRL	&sk RALT	&sk META	&shiftcaps
+										&sk LSHFT	&kp ESC		&trans					&trans			&sk RCTRL	&sk RALT
 			>;
 		};
 		
 		// Layer: MEDIA
 		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
-		// ┃ [   ] ┃       ┃       ┃ PREV  ┃VOL DN ┃       	┃VOL UP ┃ NEXT  ┃       ┃       ┃ STOP  ┃
+		// ┃ [   ] ┃BT CLR ┃       ┃ PREV  ┃VOL DN ┃       	┃VOL UP ┃ NEXT  ┃       ┃       ┃ STOP  ┃
 		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃       ┃       ┃  RW   ┃ PAUSE ┃ MUTE  ┃  		┃       ┃ PLAY  ┃  FF   ┃       ┃       ┃
+		// ┃BT ALL ┃       ┃  RW   ┃ PAUSE ┃ MUTE  ┃  		┃       ┃ PLAY  ┃  FF   ┃       ┃       ┃
 		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫		┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃       ┃       ┃       ┃       ┃       ┃		┃       ┃       ┃       ┃       ┃ 		┃ 
+		// ┃       ┃       ┃       ┃       ┃       ┃		┃  BT1  ┃  BT1  ┃  BT3  ┃  BT4  ┃  BT5  ┃ 
 		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛		┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
 		// 				      │       |       | [   ] |	 | [   ] |       |       |
@@ -191,10 +178,10 @@
 		MEDIA {
 			display-name = "Consuming media...";
 			bindings = <
-				&trans,		&none,		&none,		&kp R,		&kp C_VOL_DN,			&kp C_VOL_UP,	&kp HOME,	&none,		&none,		&kp C_STOP,
-				&none,		&none,		&kp C_RW,  &kp C_PAUSE,	&kp C_MUTE,				&none,			&kp C_PLAY,	&kp C_FF,	&none,		&none,
-				&none,		&none,		&none,		&none,		&none,					&none,			&none,		&none,		&none,		&none,
-										&none,		&none,		&trans,					&trans,			&none,		&none
+				&trans		&kp BT_CLR	&none		&kp R		&kp C_VOL_DN			&kp C_VOL_UP	&kp HOME	&none		&none		&kp C_STOP
+		&kp BT_CLEAR_ALL	&none		&kp C_RW	&kp C_PAUSE	&kp C_MUTE				&none			&kp C_PLAY	&kp C_FF	&none		&none
+				&none		&none		&none		&none		&none					&none			&none		&none		&none		&none
+										&none		&none		&trans					&trans			&none		&none
 			>;
 		};
 		
