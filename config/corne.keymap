@@ -63,13 +63,13 @@
 		};
     };
 	
-	conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <CODE MATH>;
-            then-layer = <NAVIGATION>;
-        };
-    };
+	//conditional_layers {
+    //    compatible = "zmk,conditional-layers";
+    //    tri_layer {
+    //        if-layers = <CODE MATH>;
+    //        then-layer = <NAVIGATION>;
+    //    };
+    //};
 	
     keymap {
         compatible = "zmk,keymap";
@@ -143,7 +143,7 @@
 
 		// Layer: NAVIGATION
 		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
-		// ┃ MEDIA ┃   W   ┃   E   ┃   R   ┃  APP  ┃       	┃   Y   ┃ HOME  ┃  END  ┃ PG DN ┃ PG UP ┃
+		// ┃ MEDIA ┃   W   ┃   E   ┃   R   ┃       ┃       	┃   Y   ┃ HOME  ┃  END  ┃ PG DN ┃ PG UP ┃
 		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 		// ┃  TBD  ┃   S   ┃  F4   ┃  F11  ┃ LWIN  ┃  		┃  TAB  ┃   ←   ┃   ↓   ┃   ↑   ┃   →   ┃
 		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫		┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
@@ -154,13 +154,14 @@
 		// 				      │       |       |       |	 |       |       |       |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯
 		NAVIGATION {
-			display-name = "Navigating...";
-			bindings = <
-				&mo MEDIA		&kp W			&kp E			&kp R			&kp K_APP					&kp Y			&kp HOME		&kp END			&kp PG_DN		&kp PG_UP
-				&none			&kp S			&kp F4			&kp F11			&kp LWIN					&kp TAB			&kp LEFT		&kp DOWN		&kp UP			&kp RIGHT
-				&kp Z			&kp X			&kp C			&kp V			&sk LSHFT					&bspcdel		&sk RCTRL		&sk RALT		&kp RMETA		&shiftcaps
-												&sk LSHFT		&kp ESC			&trans						&trans			&sk RCTRL		&sk RALT		
-			>;
+			status = "reserved";
+			//display-name = "Navigating...";
+			//bindings = <
+			//	&mo MEDIA		&kp W			&kp E			&kp R			&none						&kp Y			&kp HOME		&kp END			&kp PG_DN		&kp PG_UP
+			//	&none			&kp S			&kp F4			&kp F11			&kp LWIN					&kp TAB			&kp LEFT		&kp DOWN		&kp UP			&kp RIGHT
+			//	&kp Z			&kp X			&kp C			&kp V			&sk LSHFT					&bspcdel		&sk RCTRL		&sk RALT		&kp RMETA		&shiftcaps
+			//									&sk LSHFT		&kp ESC			&trans						&trans			&sk RCTRL		&sk RALT		
+			//>;
 		};
 		
 		// Layer: MEDIA
@@ -176,13 +177,14 @@
 		// 				      │       |       |       |	 |       |       |       |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯				    
 		MEDIA {
-			display-name = "Consuming media...";
-			bindings = <
-				&trans			&kp BT_CLR		&none			&kp R			&kp C_VOL_DN				&kp C_VOL_UP	&kp HOME		&none			&none			&kp C_STOP
-				&bt BT_CLR_ALL	&none			&kp C_RW		&kp C_PAUSE		&kp C_MUTE					&none			&kp C_PLAY		&kp C_FF		&none			&none
-				&none			&none			&none			&none			&none						&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4	&bt BT_SEL 5
-												&none			&none			&trans						&trans			&none			&none
-			>;
+			status = "reserved";
+			//display-name = "Consuming media...";
+			//bindings = <
+			//	&trans			&kp BT_CLR		&none			&kp R			&kp C_VOL_DN				&kp C_VOL_UP	&kp HOME		&none			&none			&kp C_STOP
+			//	&bt BT_CLR_ALL	&none			&kp C_RW		&kp C_PAUSE		&kp C_MUTE					&none			&kp C_PLAY		&kp C_FF		&none			&none
+			//	&none			&none			&none			&none			&none						&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4	&bt BT_SEL 5
+			//									&none			&none			&trans						&trans			&none			&none
+			//>;
 		};
 		
 		// Layer: TBD
