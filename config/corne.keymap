@@ -113,7 +113,7 @@
 			display-name = "Coding...";
 			bindings = <
 				&kp F5		&kp AMPS	&kp ASTRK	&kp PLUS	&kp DLLR				&kp LBKT		&kp LBRC	&kp SQT		&kp RBRC	&kp RBKT
-				&kp EQUAL	&kp BSLH	&kp FSLH	&kp MINUS	&kp EXCL,    			&kp COLON		&kp LPA		&kp DQT		&kp RPAR	&kp EQUAL
+				&kp EQUAL	&kp BSLH	&kp FSLH	&kp MINUS	&kp EXCL    			&kp COLON		&kp LPA		&kp DQT		&kp RPAR	&kp EQUAL
 				&kp AT		&kp HASH	&kp DOT		&kp COMMA	&kp QMARK				&bspcdel		&kp LT		&kp GRAVE	&kp GT		&shiftcaps
 										&sk LSHFT	&kp TAB		&trans					&trans			&sk RCTRL	&sk RALT 
 			>;
