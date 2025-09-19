@@ -63,13 +63,13 @@
 		};
     };
 	
-	//conditional_layers {
-    //    compatible = "zmk,conditional-layers";
-    //    tri_layer {
-    //        if-layers = <CODE MATH>;
-    //        then-layer = <NAVIGATION>;
-    //    };
-    //};
+	conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <CODE MATH>;
+            then-layer = <NAVIGATION>;
+        };
+    };
 	
     keymap {
         compatible = "zmk,keymap";
@@ -154,14 +154,13 @@
 		// 				      │       |       |       |	 |       |       |       |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯
 		NAVIGATION {
-			status = "reserved";
-			//display-name = "Navigating...";
-			//bindings = <
-			//	&mo MEDIA		&kp W			&kp E			&kp R			&none						&kp Y			&kp HOME		&kp END			&kp PG_DN		&kp PG_UP
-			//	&none			&kp S			&kp F4			&kp F11			&kp LWIN					&kp TAB			&kp LEFT		&kp DOWN		&kp UP			&kp RIGHT
-			//	&kp Z			&kp X			&kp C			&kp V			&sk LSHFT					&bspcdel		&sk RCTRL		&sk RALT		&kp RMETA		&shiftcaps
-			//									&sk LSHFT		&kp ESC			&trans						&trans			&sk RCTRL		&sk RALT		
-			//>;
+			display-name = "Navigating...";
+			bindings = <
+				&none			&kp W			&kp E			&kp R			&none						&kp Y			&kp HOME		&kp END			&kp PG_DN		&kp PG_UP
+				&none			&kp S			&kp F4			&kp F11			&kp LWIN					&kp TAB			&kp LEFT		&kp DOWN		&kp UP			&kp RIGHT
+				&kp Z			&kp X			&kp C			&kp V			&sk LSHFT					&bspcdel		&sk RCTRL		&sk RALT		&kp RMETA		&shiftcaps
+												&sk LSHFT		&kp ESC			&trans						&trans			&sk RCTRL		&sk RALT		
+			>;
 		};
 		
 		// Layer: MEDIA
