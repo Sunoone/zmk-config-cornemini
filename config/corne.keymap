@@ -98,7 +98,7 @@
 		// ┃SHFTLCK┃  xX   ┃  cC   ┃  vV   ┃  -_   ┃    	┃  .,   ┃  nN   ┃  mM   ┃  bB   ┃  ;:   ┃
 		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛    	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │ LWIN  |  ESC  | SPACE |	 | ENTER | BSPC  |  DEL  |
+        // 				      │ LWIN  |  ESC  | SPACE |	 | ENTER | BSPC  |  DEL  |
 		// 				      │       | LSHFT |  NAV  |	 |SYMBOLS| RCTRL | RALT  |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯       
 		MAIN {
@@ -137,9 +137,9 @@
 		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
 		// ┃  F1   ┃  F2   ┃  F3   ┃  F4   ┃  F5   ┃       	┃ HOME  ┃ PG DN ┃ PG UP ┃  END  ┃       ┃
 		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ALT TAB┃  F12  ┃  F11  ┃  TAB  ┃       ┃  	    ┃   ←   ┃   ↓   ┃   ↑   ┃   →   ┃       ┃
+		// ┃ALT TAB┃  F12  ┃  F11  ┃  TAB  ┃ LWIN  ┃  	    ┃   ←   ┃   ↓   ┃   ↑   ┃   →   ┃  F6   ┃
 		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫	   	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃       ┃       ┃       ┃       ┃       ┃       	┃       ┃       ┃       ┃       ┃       ┃ 
+		// ┃SHFTLCK┃  eE   ┃  rR   ┃[mode] ┃[mode] ┃       	┃  PP   ┃ NEXT  ┃ PREV  ┃ V_UP  ┃ V_DN  ┃ 
 		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
 		// 				      │ trans | trans | [   ] |	 |   $   | trans | trans |
@@ -149,8 +149,8 @@
 			display-name = "Navigating...";
 			bindings = <
 				&kp F1	    	&kp F2			&kp F3			&kp F4			&kp F5						&kp HOME        &kp PG_DN		&kp PG_UP       &kp END     &none
-				&kp LA(TAB)     &kp F12			&kp F11			&kp TAB			&none			           	&kp LEFT		&kp DOWN		&kp UP			&kp RIGHT   &none
-				&none			&none		    &none		    &none		    &none	    				&none			&none		    &none		    &none		&none
+				&kp LA(TAB)     &kp F12			&kp F11			&kp TAB			&kp LWIN		           	&kp LEFT		&kp DOWN		&kp UP			&kp RIGHT   &kp F6
+				&shiftcaps      &kp E		    &kp R		    &none		    &none	    				&kp C_PP		&kp C_NEXT	    &kp C_PREV		&kp C_VOL_UP		&kp C_VOL_DN
 												&trans		    &trans			&trans						&lt SYMBOLS DLLR &trans			&trans		
 			>;
 		};
