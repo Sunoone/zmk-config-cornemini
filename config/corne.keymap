@@ -168,7 +168,7 @@
 		// 				      │       |       |       |	 |       |       |       |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯				    
 		GAME {
-			display-name = "Gaming..."
+			display-name = "Gaming...";
 			bindings = <
 				&kp `~			&kp qQ   		&kp wW			&kp eE			&kp rR	        			&none	        &none   		&none			&none			&to MAIN
 				&kp LSHFT   	&kp aA			&kp sS  		&kp dD  		&kp fF	    				&bt BT_CLR	    &none   		&none           &none			&bt BT_CLR_ALL
