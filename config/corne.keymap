@@ -170,7 +170,7 @@
 		GAME {
 			display-name = "Gaming...";
 			bindings = <
-				&kp `~			&kp qQ   		&kp wW			&kp eE			&kp rR	        			&none	        &none   		&none			&none			&to MAIN
+				&kp GRAVE		&kp qQ   		&kp wW			&kp eE			&kp rR	        			&none	        &none   		&none			&none			&to MAIN
 				&kp LSHFT   	&kp aA			&kp sS  		&kp dD  		&kp fF	    				&bt BT_CLR	    &none   		&none           &none			&bt BT_CLR_ALL
 				&kp LCTRL		&kp zZ			&kp xX			&kp cC			&kp vV						&bt BT_SEL 0 	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4
 												&none			&kp LALT		&kp SPACE					&none			&none			&none
