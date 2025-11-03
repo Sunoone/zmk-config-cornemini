@@ -65,7 +65,19 @@
 		// Shift-tap: -
 		// Double-tap: -
 		// Hold: -
-		// Morph: with Shift => LBrace (',')
+		// Morph: with Shift => LBrace ('(')
+		ltrpar: lt_or_lbrace {
+			compatible = "zmk,behavior-mod-morph";
+			#binding-cells = <0>;
+			bindings = <&kp LT>, <&kp LPAR>;
+			mods = <(MOD_LSFT|MOD_RSFT)>;
+		};
+
+		// Tap: GT ('>')
+		// Shift-tap: -
+		// Double-tap: -
+		// Hold: -
+		// Morph: with Shift => RBrace (')')
 		gtrpar: gt_or_rbrace {
 			compatible = "zmk,behavior-mod-morph";
 			#binding-cells = <0>;
