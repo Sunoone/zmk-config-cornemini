@@ -54,7 +54,7 @@
 		// Double-tap: -
 		// Hold: -
 		// Morph: with Shift => BSLH ('\')
-		ltlpar: fslh_or_bslh {
+		fbslh: fslh_or_bslh {
 			compatible = "zmk,behavior-mod-morph";
 			#binding-cells = <0>;
 			bindings = <&kp FSLH>, <&kp BSLH>;
@@ -106,7 +106,7 @@
 			bindings = <
 				&kp Q			&kp W			&kp E			&kp R			&kp T				&kp Y	  		&kp U	    	    	&kp I			&kp O		  	&kp P
 				&kp A			&kp S			&kp D			&kp F			&kp G				&kp H			&kp J	        		&kp K		  	&kp L           &kp Z
-				&fslh_or_bslh   &kp X			&kp C			&kp V			&kp MINUS			&dotcomma		&kp N	        		&kp M			&kp B	    	&kp SEMI
+				&fbslh          &kp X			&kp C			&kp V			&kp MINUS			&dotcomma		&kp N	        		&kp M			&kp B	    	&kp SEMI
 												&sk CAPS		&kp LSHFT   	&lt NAV SPACE		&lt SYMBOLS RET	&mt RCTRL BSPC          &mt LALT DEL
 			>;
 		};
