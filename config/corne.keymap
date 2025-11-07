@@ -132,8 +132,8 @@
 		// ┃  7&   ┃  8*   ┃  9(   ┃   ?   ┃   ~   ┃	   	┃ trans ┃   ~   ┃   |   ┃   !   ┃ trans ┃ 
 		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │ trans | trans |  ESC  |	 | [   ] | trans | trans |
-		// 				      │       |       |  NAV  |	 |       |       |       |
+		// 				      │ trans | trans |  NAV  |	 | [   ] | trans | trans |
+		// 				      │       |       |       |	 |       |       |       |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯
 		SYMBOLS {
 			display-name = "Symbols...";
@@ -141,7 +141,7 @@
                 &kp N1			&kp N2	    	&kp N3	    	&kp SQT         &kp DQT 			&kp LBKT		&kp MINUS		&kp AMPS        &kp PLUS        &kp RBKT
 				&kp N4	    	&kp N5		    &kp N6	    	&kp N0   		&kp GRAVE  			&ltlpar         &kp STAR        &kp EQUAL       &kp FSLH        &gtrpar
 				&kp N7			&kp N8		    &kp N9			&kp QMARK	    &kp TILDE   		&trans          &kp TILDE		&kp PIPE    	&kp EXCL		&trans
-												&trans	    	&trans	   		&lt NAV ESC 		&trans			&trans	    	&trans 
+												&trans	    	&trans	   		&mo NAV      		&trans			&trans	    	&trans 
 			>;
 		};
 
@@ -154,8 +154,8 @@
 		// ┃ SHFT  ┃  eE   ┃  rR   ┃[mode] ┃ GAME  ┃       	┃  PP   ┃ NEXT  ┃ PREV  ┃ MUTE  ┃ SHIFT ┃ 
 		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │ trans | trans | [   ] |	 |  ESC  | trans | trans |
-		// 				      │       |       |       |	 |SYMBOLS|       |       |
+		// 				      │ trans | trans | [   ] |	 |SYMBOLS| trans | trans |
+		// 				      │       |       |       |	 |       |       |       |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯
 		NAV {
 			display-name = "Navigating...";
@@ -163,7 +163,7 @@
 				&kp F1	    	&kp F2			&kp F3			&kp F4			&kp F5						&kp HOME        &kp PG_DN		&kp PG_UP       &kp END     &kp F12
 				&kp LALT        &kp ESC			&kp F11			&kp TAB			&kp LWIN		           	&kp LEFT		&kp DOWN		&kp UP			&kp RIGHT   &kp F6
 				&kp LSHFT       &kp E		    &kp R		    &none		    &to GAME    				&kp C_PP		&kp C_NEXT	    &kp C_PREV		&kp C_MUTE  &kp LSHFT
-												&trans		    &trans			&trans						&lt SYMBOLS ESC &trans			&trans		
+												&trans		    &trans			&trans						&mo SYMBOLS     &trans			&trans		
 			>;
 		};
 		
