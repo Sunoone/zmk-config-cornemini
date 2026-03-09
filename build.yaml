@@ -18,11 +18,16 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+
 include:
-  - board: nice_nano
+  - board: nice_nano_v2
     shield: corne_left
     snippet: studio-rpc-usb-uart
-  - board: nice_nano
+  - board: nice_nano_v2
     shield: corne_right
   - board: nice_nano
     shield: settings_reset 
+
