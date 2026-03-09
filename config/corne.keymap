@@ -171,21 +171,21 @@
 		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
 		// ┃ TAB   ┃   Q   ┃   W   ┃   E   ┃   R   ┃       	┃       ┃       ┃       ┃       ┃ MAIN  ┃
 		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ SHIFT ┃   A   ┃   S   ┃   D   ┃   F   ┃        ┃BTCLEAR┃       ┃       ┃       ┃CLEARAL┃
+		// ┃ SHIFT ┃   A   ┃   S   ┃   D   ┃   F   ┃        ┃       ┃       ┃       ┃       ┃       ┃
 		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫	   	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 		// ┃ LCTRL ┃   Z   ┃   X   ┃   C   ┃   V   ┃	   	┃  BT1  ┃  BT1  ┃  BT3  ┃  BT4  ┃  BT5  ┃ 
 		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │       | LALT  | SPACE |	 | [   ] |       |       |
+		// 				      │       | LALT  | SPACE |	 | [   ] |BTCLEAR|CLEARAL|
 		// 				      │       |       |       |	 |       |       |       |
 		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯				    
 		GAME {
 			display-name = "Gaming...";
 			bindings = <
 				&kp TAB 		&kp Q   		&kp W			&kp E			&kp R	        			&kp LWIN	    &kp L   		&none			&none			&to MAIN
-				&kp LSHFT   	&kp A			&kp S  	    	&kp D    		&kp F	    				&bt BT_CLR	    &none   		&none           &none			&bt BT_CLR_ALL
+				&kp LSHFT   	&kp A			&kp S  	    	&kp D    		&kp F	    				&none   	    &none   		&none           &none			&none
 				&kp LCTRL		&kp Z			&kp X			&kp C			&kp V						&bt BT_SEL 0 	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4
-												&none			&kp LALT		&kp SPACE					&none			&none			&none
+												&none			&kp LALT		&kp SPACE					&none			&bt BT_CLR		&bt BT_CLR_ALL
 			>;
 		};
 		
