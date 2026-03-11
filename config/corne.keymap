@@ -149,9 +149,9 @@
 		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
 		// ┃  F1   ┃  F2   ┃  F3   ┃  F4   ┃  F5   ┃       	┃ HOME  ┃ PG DN ┃ PG UP ┃  END  ┃ GAME  ┃
 		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ LALT  ┃  ESC  ┃  F11  ┃  TAB  ┃ LWIN  ┃  	    ┃   ←   ┃   ↓   ┃   ↑   ┃   →   ┃  F6   ┃
+		// ┃ LALT  ┃  ESC  ┃  dD   ┃  TAB  ┃ LWIN  ┃  	    ┃   ←   ┃   ↓   ┃   ↑   ┃   →   ┃  F6   ┃
 		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫	   	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ SHFT  ┃  xX   ┃  eE   ┃  lL   ┃       ┃       	┃  PP   ┃ NEXT  ┃ PREV  ┃ MUTE  ┃ SHIFT ┃ 
+		// ┃ SHFT  ┃  xX   ┃  eE   ┃  lL   ┃  F11  ┃       	┃  PP   ┃ NEXT  ┃ PREV  ┃ MUTE  ┃ SHIFT ┃ 
 		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
 		// 				      │ trans | trans | [   ] |	 | BSPC  | trans | trans |
@@ -161,8 +161,8 @@
 			display-name = "Navigating...";
 			bindings = <
 				&kp F1	    	&kp F2			&kp F3			&kp F4			&kp F5						&kp HOME         &kp PG_DN		&kp PG_UP       &kp END     &to GAME
-				&kp LALT        &kp ESC			&kp F11			&kp TAB			&kp LWIN		           	&kp LEFT		 &kp DOWN		&kp UP			&kp RIGHT   &kp F6
-				&kp LSHFT       &kp X		    &kp E		    &kp L		    &to GAME    				&kp C_PP		 &kp C_NEXT	    &kp C_PREV		&kp C_MUTE  &kp LSHFT
+				&kp LALT        &kp ESC			&kp D			&kp TAB			&kp LWIN		           	&kp LEFT		 &kp DOWN		&kp UP			&kp RIGHT   &kp F6
+				&kp LSHFT       &kp X		    &kp E		    &kp L		    &kp F11      				&kp C_PP		 &kp C_NEXT	    &kp C_PREV		&kp C_MUTE  &kp LSHFT
 												&trans		    &trans			&trans						&kp BSPC         &trans			&trans		
 			>;
 		};
