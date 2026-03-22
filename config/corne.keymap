@@ -72,6 +72,11 @@
     // A + D + <H, J, K, L>: HME -> LALT + <LEFT, DOWN, UP, RIGHT>
     combos {
         compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp U>;
+        };
         // Activate LALT + HME
         combo_layer_lalt_left {
             timeout-ms = <60>;
