@@ -68,80 +68,80 @@
         // Activate LALT + HME
         combo_layer_lalt_left {
             layers = <MAIN>;
-            key-positions = <11 13 16>;
+            key-positions = <10 13 15>;
             bindings = <&hmlk HME LALT>;
         };
         combo_layer_lalt_down {
             layers = <MAIN>;
-            key-positions = <11 13 17>;
+            key-positions = <10 13 16>;
             bindings = <&hmlk HME LALT>;
         };
         combo_layer_lalt_up {
             layers = <MAIN>;
-            key-positions = <11 13 18>;
+            key-positions = <10 13 17>;
             bindings = <&hmlk HME LALT>;
         };
         combo_layer_lalt_right {
             layers = <MAIN>;
-            key-positions = <11 13 19>;
+            key-positions = <10 13 18>;
             bindings = <&hmlk HME LALT>;
         };
         // Activate LCTRL + HME
         combo_layer_lctl_left {
             layers = <MAIN>;
-            key-positions = <11 14 16>;
+            key-positions = <10 13 15>;
             bindings = <&hmlk HME LCTRL>;
         };
         combo_layer_lctl_down {
             layers = <MAIN>;
-            key-positions = <11 14 17>;
+            key-positions = <10 13 16>;
             bindings = <&hmlk HME LCTRL>;
         };
         combo_layer_lctl_up {
             layers = <MAIN>;
-            key-positions = <11 14 18>;
+            key-positions = <10 13 17>;
             bindings = <&hmlk HME LCTRL>;
         };
         combo_layer_lctl_right {
             layers = <MAIN>;
-            key-positions = <11 14 19>;
+            key-positions = <10 13 18>;
             bindings = <&hmlk HME LCTRL>;
         };
         // Activate HMN
         combo_layer_g_left {
             layers = <MAIN>;
-            key-positions = <11 14 16>;
+            key-positions = <10 13 15>;
             bindings = <&hmlm HME LCTRL>;
         };
         combo_layer_g_down {
             layers = <MAIN>;
-            key-positions = <11 14 17>;
+            key-positions = <10 13 16>;
             bindings = <&hmlm HME LCTRL>;
         };
         combo_layer_g_up {
             layers = <MAIN>;
-            key-positions = <11 14 18>;
+            key-positions = <10 13 17>;
             bindings = <&hmlm HME LCTRL>;
         };
         combo_layer_g_right {
             layers = <MAIN>;
-            key-positions = <11 14 19>;
+            key-positions = <10 13 18>;
             bindings = <&hmlm HME LCTRL>;
         };
         // Activate HME -> Tab
         combo_layer_tab {
             layers = <MAIN>;
-            key-positions = <11 3 4>;
+            key-positions = <10 2 4>;
             bindings = <&hmlm HME LWIN>;
         };
         combo_layer_win_left {
             layers = <MAIN>;
-            key-positions = <11 3 16>;
+            key-positions = <10 2 15>;
             bindings = <&hmlm HME LWIN>;
         };
         combo_layer_win_right {
             layers = <MAIN>;
-            key-positions = <11 3 19>;
+            key-positions = <10 2 18>;
             bindings = <&hmlm HME LWIN>;
         };
     };
