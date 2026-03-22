@@ -69,76 +69,72 @@
         // Activate LALT + HME
         combo_layer_lalt_left {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_D, KEYS_H>;
+            key-positions = <KEYS_A KEYS_D KEYS_H>;
             bindings = <&hmlk HME LALT>;
         };
         combo_layer_lalt_down {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_D, KEYS_J>;
+            key-positions = <KEYS_A KEYS_D KEYS_J>;
             bindings = <&hmlk HME LALT>;
         };
         combo_layer_lalt_up {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_D, KEYS_K>;
+            key-positions = <KEYS_A KEYS_D KEYS_K>;
             bindings = <&hmlk HME LALT>;
         };
         combo_layer_lalt_right {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_D, KEYS_L>;
+            key-positions = <KEYS_A KEYS_D KEYS_L>;
             bindings = <&hmlk HME LALT>;
         };
         // Activate LCTRL + HME
         combo_layer_lctl_left {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_H>;
+            key-positions = <KEYS_A KEYS_F KEYS_H>;
             bindings = <&hmlk HME LCTRL>;
         };
         combo_layer_lctl_down {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_J>;
+            key-positions = <KEYS_A KEYS_F KEYS_J>;
             bindings = <&hmlk HME LCTRL>;
         };
         combo_layer_lctl_up {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_K>;
+            key-positions = <KEYS_A KEYS_F KEYS_K>;
             bindings = <&hmlk HME LCTRL>;
         };
         combo_layer_lctl_right {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_L>;
+            key-positions = <KEYS_A KEYS_F KEYS_L>;
             bindings = <&hmlk HME LCTRL>;
         };
         // Activate HMN
         combo_layer_g_left {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_H>;
+            key-positions = <KEYS_A KEYS_F KEYS_H>;
             bindings = <&hmlm HME LCTRL>;
         };
         combo_layer_g_down {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_J>;
+            key-positions = <KEYS_A KEYS_F KEYS_J>;
             bindings = <&hmlm HME LCTRL>;
         };
         combo_layer_g_up {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_K>;
+            key-positions = <KEYS_A KEYS_F KEYS_K>;
             bindings = <&hmlm HME LCTRL>;
         };
         combo_layer_g_right {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_F, KEYS_L>;
+            key-positions = <KEYS_A KEYS_F KEYS_L>;
             bindings = <&hmlm HME LCTRL>;
         };
         // Activate HME -> Tab
         combo_layer_tab {
             layers=<MAIN>
-            key-positions = <KEYS_A KEYS_E, KEYS_R>;
+            key-positions = <KEYS_A KEYS_E KEYS_R>;
             bindings = <&to HME>;
         };
-        combo_layer_win_ctrl {
-            layers=<MAIN>
-            key-positions = <KEYS_A KEYS_E, KEYS_F>;
-            bindings = <&to HME>;
     };
 
     chosen {
