@@ -47,8 +47,8 @@
         wait-ms = <0>;
         tap-ms = <0>;
         bindings
-            = <&macro_param_1to1 &tog 1>      // Toggles Layer (Param 1)
-            , <&macro_param_2to1 &kp 2>;       // Presses Modifier (Param 2)
+            = <&macro_param_1to1 &tog MACRO_PLACEHOLDER>      // Toggles Layer (Param 1)
+            , <&macro_param_2to1 &kp MACRO_PLACEHOLDER>;       // Presses Modifier (Param 2)
         };
         hmlm: homerow_mod_layer_mo {
         compatible = "zmk,behavior-macro-two-param";
@@ -56,8 +56,8 @@
         wait-ms = <0>;
         tap-ms = <0>;
         bindings
-            = <&macro_param_1to1 &tog 1>      // Toggles Layer (Param 1)
-            , <&macro_param_2to1 &mo 2>;       // Presses Modifier (Param 2)
+            = <&macro_param_1to1 &tog MACRO_PLACEHOLDER>      // Toggles Layer (Param 1)
+            , <&macro_param_2to1 &mo MACRO_PLACEHOLDER>;       // Presses Modifier (Param 2)
         };
     };
 
