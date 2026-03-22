@@ -133,7 +133,17 @@
         combo_layer_tab {
             layers = <MAIN>;
             key-positions = <11 3 4>;
-            bindings = <&to HME>;
+            bindings = <&hmlm HME LWIN>;
+        };
+        combo_layer_win_left {
+            layers = <MAIN>;
+            key-positions = <11 3 16>;
+            bindings = <&hmlm HME LWIN>;
+        };
+        combo_layer_win_right {
+            layers = <MAIN>;
+            key-positions = <11 3 19>;
+            bindings = <&hmlm HME LWIN>;
         };
     };
 
