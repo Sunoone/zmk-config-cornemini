@@ -152,11 +152,19 @@
     };
 
     behaviors {
-		m: morph {
-            compatible = "zmk,behavior-morph";
-            #binding-cells = <2>; // Allows passing two parameters (a and b)
-            bindings = <&kp>, <&kp>; // Default bindings for a and b
-            mods = <(MOD_LSFT|MOD_RSFT)>; // Optional: modifiers for b
+		 m_sl: slash_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp BSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Morph for Dot/Comma
+        m_dot: dot_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COMMA>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -172,7 +180,7 @@
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
     &kp A			    &kp D               &kp D               &kp F 		        &kp G              	    &kp H   		    &kp J	        	&kp K   	  	    &kp L               &kp Z
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp MINUS           &kp X			    &kp C			    &kp V			    &m FSLH BSLH     	    &m DOT COMMA    	&kp N	        	&kp M			    &kp B	    	    &kp SEMI
+    &kp MINUS           &kp X			    &kp C			    &kp V			    &m_sl           	    &m_dot          	&kp N	        	&kp M			    &kp B	    	    &kp SEMI
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
 								            &kp LWIN   		    &sk LSHFT   	    &kp SPACE		        &kp RETURN     	    &sk RCTRL              &kp RALT
 //      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
