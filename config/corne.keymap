@@ -11,198 +11,199 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define MAIN 0
-#define SYMBOLS 1
-#define NAV 2
-#define GAME 3
-#define TBD 4
+
+#define HME 1
+#define HMN 2
+
+#define UTI 3
+
+#define SYM 4
+#define NUM 5
+
+#define NAV 6
+#define BTUTI 7
+#define GAME 8
+
+#define KEY_E 3
+#define KEY_R 4
+#define KEY_T 5
+#define KEY_A 11
+#define KEY_S 12
+#define KEY_D 13
+#define KEY_F 14
+#define KEY_G 15
+#define KEY_H 16
+#define KEY_J 17
+#define KEY_K 18
+#define KEY_L 19
+
 
 &caps_word {
 	continue-list = <UNDERSCORE MINUS BSPC DEL SPACE RET TAB>;
 };
 
 / {
+    macros {
+        hmlk: homerow_mod_layer_kp {
+        compatible = "zmk,behavior-macro-two-param";
+        #binding-cells = <2>; // Param 1: Layer, Param 2: Modifier
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings
+            = <&macro_param_1to1 &tog 1>      // Toggles Layer (Param 1)
+            , <&macro_param_2to1 &kp 2>;       // Presses Modifier (Param 2)
+        };
+        hmlm: homerow_mod_layer_mo {
+        compatible = "zmk,behavior-macro-two-param";
+        #binding-cells = <2>; // Param 1: Layer, Param 2: Modifier
+        wait-ms = <0>;
+        tap-ms = <0>;
+        bindings
+            = <&macro_param_1to1 &tog 1>      // Toggles Layer (Param 1)
+            , <&macro_param_2to1 &mo 2>;       // Presses Modifier (Param 2)
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        // Activate LALT + HME
+        combo_layer_lalt_left {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_D, KEYS_H>;
+            bindings = <&hmlk HME LALT>;
+        };
+        combo_layer_lalt_down {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_D, KEYS_J>;
+            bindings = <&hmlk HME LALT>;
+        };
+        combo_layer_lalt_up {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_D, KEYS_K>;
+            bindings = <&hmlk HME LALT>;
+        };
+        combo_layer_lalt_right {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_D, KEYS_L>;
+            bindings = <&hmlk HME LALT>;
+        };
+        // Activate LCTRL + HME
+        combo_layer_lctl_left {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_H>;
+            bindings = <&hmlk HME LCTRL>;
+        };
+        combo_layer_lctl_down {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_J>;
+            bindings = <&hmlk HME LCTRL>;
+        };
+        combo_layer_lctl_up {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_K>;
+            bindings = <&hmlk HME LCTRL>;
+        };
+        combo_layer_lctl_right {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_L>;
+            bindings = <&hmlk HME LCTRL>;
+        };
+        // Activate HMN
+        combo_layer_g_left {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_H>;
+            bindings = <&hmlm HME LCTRL>;
+        };
+        combo_layer_g_down {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_J>;
+            bindings = <&hmlm HME LCTRL>;
+        };
+        combo_layer_g_up {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_K>;
+            bindings = <&hmlm HME LCTRL>;
+        };
+        combo_layer_g_right {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_F, KEYS_L>;
+            bindings = <&hmlm HME LCTRL>;
+        };
+        // Activate HME -> Tab
+        combo_layer_tab {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_E, KEYS_R>;
+            bindings = <&to HME>;
+        };
+        combo_layer_win_ctrl {
+            layers=<MAIN>
+            key-positions = <KEYS_A KEYS_E, KEYS_F>;
+            bindings = <&to HME>;
+    };
+
     chosen {
         zmk,physical-layout = &foostan_corne_5col_layout;
     };
-	
-    behaviors {	
-		// Tap: Backspace
-		// Shift-tap: -
-		// Double-tap: -
-		// Morph: with Shift => Forward delete ('⌦')
-		bspcdel: backspace_or_del {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp BSPC>, <&kp DEL>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
-		
-		// Tap: Dot ('.')
-		// Shift-tap: -
-		// Double-tap: -
-		// Hold: -
-		// Morph: with Shift => Comma (',')
-		dotcomma: dot_or_comma {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp DOT>, <&kp COMMA>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
-		
-		// Tap: FSLH ('/')
-		// Shift-tap: -
-		// Double-tap: -
-		// Hold: -
-		// Morph: with Shift => BSLH ('\')
-		fbslh: fslh_or_bslh {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp FSLH>, <&kp BSLH>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
 
-		// Tap: LT ('<')
-		// Shift-tap: -
-		// Double-tap: -
-		// Hold: -
-		// Morph: with Shift => LBrace ('(')
-		ltlpar: lt_or_lbrace {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp LT>, <&kp LPAR>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
-
-		// Tap: GT ('>')
-		// Shift-tap: -
-		// Double-tap: -
-		// Hold: -
-		// Morph: with Shift => RBrace (')')
-		gtrpar: gt_or_rbrace {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp GT>, <&kp RPAR>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
-
-		// Tap: Sticky Left Shift
-		// Shift-tap: -
-		// Double-tap: Turn on CAPS_WORD
-		// Hold: -
-		// Morph: -
-		shiftcaps: sticky_shift_or_capsword {
-			compatible = "zmk,behavior-tap-dance";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&sk RSHFT>, <&caps_word>;
-		};
+    behaviors {
+		m: morph {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <3>; // Accepts 3 parameters: tap_binding, hold_binding, mods
+            bindings = <&kp>;
+            // Example implementation:  bindings = <&m GT RPAR (MOD_LSFT|MOD_RSFT)>;
+            // MSFT macro defined:
+        };
     };
-	
+
     keymap {
         compatible = "zmk,keymap";
 
-		// Layer: MAIN
-        // ╭────────────── Left-side ──────────────╮       	╭───────────── Right-side ──────────────╮
-		// ┃  qQ   ┃  wW   ┃  eE   ┃  rR   ┃  tT   ┃       	┃  yY   ┃  uU   ┃  iI   ┃  oO   ┃  pP   ┃
-		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃  aA   ┃  sS   ┃  dD   ┃  fF   ┃  gG   ┃  	  	┃  hH   ┃  jJ   ┃  kK   ┃  lL   ┃  zZ   ┃
-		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫    	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃  /\   ┃  xX   ┃  cC   ┃  vV   ┃  -_   ┃    	┃  .,   ┃  nN   ┃  mM   ┃  bB   ┃  ;:   ┃
-		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛    	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-        // 				      │ CAPS  | LSHFT | SPACE |	 | ENTER | RCTRL | LALT  |
-		// 				      │       |       |  NAV  |	 |SYMBOLS|       |       |
-		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯       
+// ################################################################################################## MAIN ####################################################################################################
 		MAIN {
-			display-name = "Main";
-			bindings = <
-				&kp Q			&kp W			&kp E			&kp R			&kp T				&kp Y	  		&kp U	    	    	&kp I			&kp O		  	&kp P
-				&kp A			&kp S			&kp D			&kp F			&kp G				&kp H			&kp J	        		&kp K		  	&kp L           &kp Z
-				&fbslh          &kp X			&kp C			&kp V			&kp MINUS			&dotcomma		&kp N	        		&kp M			&kp B	    	&kp SEMI
-												&caps_word		&kp LSHFT   	&lt NAV SPACE		&lt SYMBOLS RET	&kp RCTRL               &kp LALT
-			>;
-		};
-		
-		// Layer: SYMBOLS
-		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
-		// ┃   ~   ┃  1!   ┃  2@   ┃  3#   ┃   "   ┃       	┃  [{   ┃   -   ┃   &   ┃   +   ┃  ]}   ┃
-		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫━━━━━━━┫
-		// ┃  '"   ┃  4$   ┃  5%   ┃  6^   ┃  0)   ┃  	  	┃  <(   ┃   *   ┃   =   ┃   /   ┃  >)   ┃
-		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫	   	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃  `~   ┃  7&   ┃  8*   ┃  9(   ┃   ?   ┃	   	┃ trans ┃   ~   ┃   |   ┃   !   ┃ trans ┃ 
-		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │ trans | trans |  DEL  |	 | [   ] | trans | trans |
-		// 				      │       |       |       |	 |       |       |       |
-		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯
-		SYMBOLS {
-			display-name = "Symbols...";
+            display-name = "Main";
             bindings = <
-            	&kp TILDE       &kp N1			&kp N2	    	&kp N3	    	&kp DQT         	&kp LBKT		&kp MINUS		&kp AMPS        &kp PLUS        &kp RBKT
-				&kp SQT         &kp N4	    	&kp N5		    &kp N6	    	&kp N0   		 	&ltlpar         &kp STAR        &kp EQUAL       &kp FSLH        &gtrpar
-				&kp GRAVE       &kp N7			&kp N8		    &kp N9			&kp QMARK	       	&trans          &kp TILDE		&kp PIPE    	&kp EXCL		&trans
-												&trans	    	&trans	   		&kp DEL      		&trans			&trans	    	&trans 
+// ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
+    &kp Q			    &kp W			    &kp E		    	&kp R			    &kp T				    &kp Y	  		    &kp U	    	    &kp I			    &kp O		  	    &kp P
+// ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
+    &kp A			    &kp D               &kp D               &kp F 		        &kp G              	    &kp H   		    &kp J	        	&hm K RCTRL	  	    &hm   LALT          &kp Z
+// ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
+    &kp MINUS           &kp X			    &kp C			    &kp V			    &m FSLH BSLH MSFT  	    &m DOT COMMA MSFT	&kp N	        	&kp M			    &kp B	    	    &kp SEMI
+// ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
+								            &none   		    &sk LSHFT   	    &lt NAV SPACE		    &to SYMBOLS 	    &none               &kp LALT
+//      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
 			>;
 		};
 
-		// Layer: NAV
-		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
-		// ┃  F1   ┃  F2   ┃  F3   ┃  F4   ┃  F5   ┃       	┃ HOME  ┃ PG DN ┃ PG UP ┃  END  ┃ GAME  ┃
-		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ LALT  ┃  ESC  ┃  dD   ┃  TAB  ┃ LWIN  ┃  	    ┃   ←   ┃   ↓   ┃   ↑   ┃   →   ┃  F6   ┃
-		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫	   	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ SHFT  ┃  xX   ┃  eE   ┃  lL   ┃  F11  ┃       	┃  PP   ┃ NEXT  ┃ PREV  ┃ MUTE  ┃ SHIFT ┃ 
-		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │ trans | trans | [   ] |	 | BSPC  | trans | trans |
-		// 				      │       |       |       |	 |       |       |       |
-		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯
-		NAV {
-			display-name = "Navigating...";
+// ######################################################################################### HME: HOMEROW MOD EDITOR ###########################################################################################
+		HME {
+			display-name = "HM Edi";
 			bindings = <
-				&kp F1	    	&kp F2			&kp F3			&kp F4			&kp F5						&kp HOME         &kp PG_DN		&kp PG_UP       &kp END     &to GAME
-				&kp LALT        &kp ESC			&kp D			&kp TAB			&kp LWIN		           	&kp LEFT		 &kp DOWN		&kp UP			&kp RIGHT   &kp F6
-				&kp LSHFT       &kp X		    &kp E		    &kp L		    &kp F11      				&kp C_PP		 &kp C_NEXT	    &kp C_PREV		&kp C_MUTE  &kp LSHFT
-												&trans		    &trans			&trans						&kp BSPC         &trans			&trans		
+// ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
+    &trans			    &trans			    &mt LWIN E			&trans  			&mt T TAB		        &trans	  	    	 &trans	    	     &trans      		 &trans      		 &trans
+// ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
+    &lt MAIN A		    &trans  	        &mt LALT D     		&mt LCTRL F 	    &lt HME G  		        &kp LEFT		     &kp DOWN            &kp UP      		 &kp RIGHT           &trans
+// ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
+    &trans              &trans			    &trans			    &trans			    &trans      	        &trans  		     &trans	        	 &trans      		 &trans      	     &trans
+// ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
+					    			        &trans  		    &trans         	    &kp LSHFT               &trans      	    &trans 	            &trans
+//      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
 			>;
-		};
-		
-		// Layer: GAME
-		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
-		// ┃ TAB   ┃   Q   ┃   W   ┃   E   ┃   R   ┃       	┃       ┃       ┃       ┃       ┃ MAIN  ┃
-		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ SHIFT ┃   A   ┃   S   ┃   D   ┃   F   ┃        ┃  BT1  ┃  BT1  ┃  BT3  ┃  BT4  ┃  BT5  ┃
-		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫	   	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ LCTRL ┃   Z   ┃   X   ┃   C   ┃   V   ┃	   	┃BTCLEAR┃       ┃       ┃       ┃       ┃ 
-		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛	   	┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │       | LALT  | SPACE |	 | [   ] |       |       |
-		// 				      │       |       |       |	 |       |       |       |
-		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯				    
-		GAME {
-			display-name = "Gaming...";
+
+// ######################################################################################### HME: HOMEROW MOD NAVIGATION ###########################################################################################
+		HMN {
+			display-name = "HM Nav";
 			bindings = <
-				&kp TAB 		&kp Q   		&kp W			&kp E			&kp R	        			&kp LWIN	    &kp L   		&none			&none			&to MAIN
-				&kp LSHFT   	&kp A			&kp S  	    	&kp D    		&kp F	    				&bt BT_SEL 0 	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4
-				&kp LCTRL		&kp Z			&kp X			&kp C			&kp V						&bt BT_CLR 	    &none   		&none           &none			&none
-												&none			&kp LALT		&kp SPACE					&none			&none   		&none
+// ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
+    &trans			    &trans			    &trans			    &trans			    &trans			        &trans	  	    	 &trans	    	     &trans      		 &trans      		 &trans
+// ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
+    &trans			    &trans  	        &trans     		    &trans  		    &trans  		        &kp HOME		     &kp PG_DN           &kp PG_UP      	 &kp END             &trans
+// ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
+    &trans              &trans			    &trans			    &trans			    &trans      	        &dotcomma		     &trans	        	 &trans      		 &trans      	     &trans
+// ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
+					    			        &trans  		    &trans         	    &trans                  &trans      	    &trans 	            &trans
+//      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
 			>;
-		};
-		
-		// Layer: TBD
-		// ╭────────────── Left-side ──────────────╮       	╭────────────── Right-side ─────────────╮
-		// ┃       ┃       ┃       ┃       ┃       ┃       	┃       ┃       ┃       ┃       ┃       ┃
-		// ┣━━━━━━━╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫       	┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃ [   ] ┃       ┃       ┃       ┃       ┃  		┃       ┃       ┃       ┃       ┃       ┃
-		// ┣───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫		┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-		// ┃       ┃       ┃       ┃       ┃       ┃		┃       ┃       ┃       ┃       ┃       ┃ 
-		// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛		┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-		// 				      ┌───────┬───────┬───────┐	 ┌───────┬───────┬───────┐
-		// 				      │ LCTRL | [   ] |       |	 | RSHFT | [   ] | BSPC  |
-		// 				      │       |       |       |	 |       |       |       |
-		// 				      ╰───────┴───────┴───────┘	 └───────┴───────┴───────╯			    
-		TBD {
-			status = "reserved";
-		};
-    };
+
+// ################################################################################################# ONE TOUCH ###########################################################################################
+
 };
