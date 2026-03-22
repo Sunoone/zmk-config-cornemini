@@ -74,88 +74,10 @@
         compatible = "zmk,combos";
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp U>;
+            key-positions = <10  12>;
+            bindings = <&to HME>;
         };
-        // Activate LALT + HME
-        combo_layer_lalt_left {
-            timeout-ms = <60>;
-            key-positions = <10 12 15>;
-            bindings = <&hmlk HME LALT>;
-        };
-        combo_layer_lalt_down {
-            timeout-ms = <60>;
-            key-positions = <10 12 16>;
-            bindings = <&kp U>;
-        };
-        combo_layer_lalt_up {
-            layers = <MAIN>;
-            key-positions = <10 12 17>;
-            bindings = <&hmlk HME LALT>;
-        };
-        combo_layer_lalt_right {
-            layers = <MAIN>;
-            key-positions = <10 12 18>;
-            bindings = <&hmlk HME LALT>;
-        };
-        // Activate LCTRL + HME
-        combo_layer_lctl_left {
-            layers = <MAIN>;
-            key-positions = <10 13 15>;
-            bindings = <&hmlk HME LCTRL>;
-        };
-        combo_layer_lctl_down {
-            layers = <MAIN>;
-            key-positions = <10 13 16>;
-            bindings = <&hmlk HME LCTRL>;
-        };
-        combo_layer_lctl_up {
-            layers = <MAIN>;
-            key-positions = <10 13 17>;
-            bindings = <&hmlk HME LCTRL>;
-        };
-        combo_layer_lctl_right {
-            layers = <MAIN>;
-            key-positions = <10 13 18>;
-            bindings = <&hmlk HME LCTRL>;
-        };
-        // Activate HMN
-        combo_layer_g_left {
-            layers = <MAIN>;
-            key-positions = <10 14 15>;
-            bindings = <&hmlm HME LCTRL>;
-        };
-        combo_layer_g_down {
-            layers = <MAIN>;
-            key-positions = <10 14 16>;
-            bindings = <&hmlm HME LCTRL>;
-        };
-        combo_layer_g_up {
-            layers = <MAIN>;
-            key-positions = <10 14 17>;
-            bindings = <&hmlm HME LCTRL>;
-        };
-        combo_layer_g_right {
-            layers = <MAIN>;
-            key-positions = <10 14 18>;
-            bindings = <&hmlm HME LCTRL>;
-        };
-        // Activate HME -> Tab
-        combo_layer_tab {
-            layers = <MAIN>;
-            key-positions = <10 2 4>;
-            bindings = <&hmlm HME LWIN>;
-        };
-        combo_layer_win_left {
-            layers = <MAIN>;
-            key-positions = <10 2 15>;
-            bindings = <&hmlm HME LWIN>;
-        };
-        combo_layer_win_right {
-            layers = <MAIN>;
-            key-positions = <10 2 18>;
-            bindings = <&hmlm HME LWIN>;
-        };
+
     };
 
     chosen {
@@ -205,7 +127,7 @@
 // ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
     &trans			    &trans			    &mt LWIN E			&trans  			&mt T TAB		        &trans	  	    	&trans	    	    &trans      		&trans      		&trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &lt MAIN A		    &trans  	        &mt LALT D     		&mt LCTRL F 	    &mo HME  		        &kp LEFT		    &kp DOWN           &kp UP      		&kp RIGHT           &trans
+    &trans		        &mt LALT D  	    &trans     	    	&mt LCTRL F 	    &mo HMN  		        &kp LEFT		    &kp DOWN           &kp UP      		&kp RIGHT           &trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
     &trans              &trans			    &trans			    &trans			    &trans      	        &trans  		    &trans	        	&trans      		&trans      	    &trans
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
