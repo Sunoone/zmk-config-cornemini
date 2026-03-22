@@ -12,7 +12,7 @@
 
 #define MAIN 0
 #define HM 1
-#define HMN 2
+#define HMH 2
 #define UTI 3
 #define SYM 4
 #define NAV 5
