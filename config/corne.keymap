@@ -74,14 +74,14 @@
         compatible = "zmk,combos";
         // Activate LALT + HME
         combo_layer_lalt_left {
-
+            timeout-ms = <60>;
             key-positions = <10 13 15>;
             bindings = <&hmlk HME LALT>;
         };
         combo_layer_lalt_down {
-            layers = <MAIN>;
+            timeout-ms = <60>;
             key-positions = <10 13 16>;
-            bindings = <&hmlk HME LALT>;
+            bindings = <&kp U>;
         };
         combo_layer_lalt_up {
             layers = <MAIN>;
