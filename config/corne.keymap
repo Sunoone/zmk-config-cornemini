@@ -119,14 +119,6 @@
             bindings = <&kp DOT>, <&kp COMMA>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        lt_layer: layer_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp SPACE>, <&to HME>;
-            hold-trigger-key = <KC_NO>;
-            hold-trigger-mods = <0>;
-        };
     };
 
     keymap {
