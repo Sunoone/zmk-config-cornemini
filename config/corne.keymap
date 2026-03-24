@@ -54,6 +54,18 @@
             #binding-cells = <0>;
             bindings = <&to MAIN>, <&kp A>;
         };
+          /* This macro explicitly releases Alt before tapping Home */
+        macro_home: macro_home {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LALT &kp RALT>, <&kp HOME>;
+        };
+        /* This macro explicitly releases Alt before tapping End */
+        macro_end: macro_end {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LALT &kp RALT>, <&kp END>;
+        };
     };
 
     combos {
@@ -115,13 +127,11 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-    	/* --- LEFT ARROW -> HOME --- */
-        hm_inner: hm_inner {
+    	 hm_inner: hm_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            /* Trigger on Ctrl AND include Alt so both are masked */
-            bindings = <&kp LA(LEFT)>, <&kp HOME>;
-            mods = <(MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT)>;
+            bindings = <&kp LA(LEFT)>, <&macro_home>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
             keep-mods = <0>;
         };
 
@@ -133,12 +143,11 @@
             keep-mods = <0>;
         };
 
-        /* --- RIGHT ARROW -> END --- */
         ed_inner: ed_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LA(RIGHT)>, <&kp END>;
-            mods = <(MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT)>;
+            bindings = <&kp LA(RIGHT)>, <&macro_end>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
             keep-mods = <0>;
         };
 
