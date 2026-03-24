@@ -115,17 +115,33 @@
             bindings = <&kp DOT>, <&kp COMMA>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-		m_left: left_morph {
+		 hm_inner: hm_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LEFT>, <&kp HOME>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
-		m_right: right_morph {
+
+        m_left_home: home_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT>, <&hm_inner>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        /* Right Arrow Logic */
+        ed_inner: ed_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RIGHT>, <&kp END>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        m_right_end: end_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&ed_inner>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
 
@@ -155,7 +171,7 @@
 // ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
     &kp DELETE		    &trans			    &trans			    &trans			    &trans			        &trans	  	    	&trans	    	    &m_lakp MAIN I 		&m_lakp MAIN O      &trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp_to_a LSHIFT 0   &kp ESCAPE          &kp D          		&kp LCTRL   		&kp TAB  		        &m_left 		    &kp DOWN            &kp UP      	    &m_right            &trans
+    &kp_to_a LSHIFT 0   &kp ESCAPE          &kp D          		&kp LCTRL   		&kp TAB  		        &m_left_home 	    &kp DOWN            &kp UP      	    &m_right_end        &trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
     &kp LALT            &trans			    &m_lakp MAIN C	    &trans			    &trans      	        &trans              &trans	        	&trans      		&trans      	    &trans
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
