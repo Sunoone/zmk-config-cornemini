@@ -54,7 +54,21 @@
             #binding-cells = <0>;
             bindings = <&to MAIN>, <&kp A>;
         };
-
+ /* Macros to explicitly release all mods before sending Home/End */
+        m_home: m_home {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&kp HOME>;
+        };
+        m_end: m_end {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&kp END>;
+        };
     };
 
     combos {
@@ -115,39 +129,36 @@
             bindings = <&kp DOT>, <&kp COMMA>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-	 /* --- LEFT ARROW -> HOME LOGIC --- */
+
+    	  /* LEFT ARROW LOGIC */
         hm_inner: hm_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            /* If Ctrl is NOT held, send Alt+Left. If Ctrl IS held, send Home. */
-            bindings = <&kp LA(LEFT)>, <&kp HOME>;
+            bindings = <&kp LA(LEFT)>, <&m_home>; /* Use Macro here */
             mods = <(MOD_LCTL|MOD_RCTL)>;
             keep-mods = <0>;
         };
 
-        m_left_home: home_morph {
+        home_morph: home_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            /* Outer morph checks for Alt */
             bindings = <&kp LEFT>, <&hm_inner>;
             mods = <(MOD_LALT|MOD_RALT)>;
             keep-mods = <0>;
         };
 
-        /* --- RIGHT ARROW -> END LOGIC --- */
+        /* RIGHT ARROW LOGIC */
         ed_inner: ed_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            /* If Ctrl is NOT held, send Alt+Right. If Ctrl IS held, send End. */
-            bindings = <&kp LA(RIGHT)>, <&kp END>;
+            bindings = <&kp LA(RIGHT)>, <&m_end>; /* Use Macro here */
             mods = <(MOD_LCTL|MOD_RCTL)>;
             keep-mods = <0>;
         };
 
-        m_right_end: end_morph {
+        end_morph: end_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            /* Outer morph checks for Alt */
             bindings = <&kp RIGHT>, <&ed_inner>;
             mods = <(MOD_LALT|MOD_RALT)>;
             keep-mods = <0>;
@@ -180,7 +191,7 @@
 // ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
     &kp DELETE		    &trans			    &trans			    &trans			    &trans			        &trans	  	    	&trans	    	    &m_lakp MAIN I 		&m_lakp MAIN O      &trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp_to_a LSHIFT 0   &kp ESCAPE          &kp D          		&kp LCTRL   		&kp TAB  		        &m_left_home 	    &kp DOWN            &kp UP      	    &m_right_end        &trans
+    &kp_to_a LSHIFT 0   &kp ESCAPE          &kp D          		&kp LCTRL   		&kp TAB  		        &home_morph 	    &kp DOWN            &kp UP      	    &end_morph        &trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
     &kp LALT            &trans			    &m_lakp MAIN C	    &trans			    &trans      	        &trans              &trans	        	&trans      		&trans      	    &trans
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
