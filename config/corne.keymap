@@ -76,7 +76,7 @@
             flavor = "tap-preferred";
             bindings = <&to>, <&to>;
         };
-        a_or_shft: ltl {
+        a_or_shft: a_or_shft {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
