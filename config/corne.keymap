@@ -50,6 +50,11 @@
                 , <&macro_release &to MACRO_PLACEHOLDER>
                 ;
         };
+        to_a: to_a {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to MAIN>, <&kp A>;
+        };
 
     };
 
@@ -77,13 +82,13 @@
             flavor = "tap-preferred";
             bindings = <&to>, <&to>;
         };
-        // a_or_shft: a_or_shft {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <0>;
-        //     tapping-term-ms = <200>;
-        //     flavor = "tap-preferred";
-        //     bindings = <&to MAIN &kp A>, <&kp LSHFT>;
-        // };
+        shft_to_a: shft_to_a {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&to_a>;
+        };
 		m_sl: slash_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -124,7 +129,7 @@
 // ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
     &kp DELETE		    &trans			    &trans			    &trans			    &kp TAB			        &trans	  	    	&trans	    	    &m_lakp MAIN I 		&m_lakp MAIN O      		&trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp LSHFT           &kp ESCAPE          &kp D          		&kp LCTRL   		&mo NAVH  		        &kp LEFT		    &kp DOWN            &kp UP      	    &kp RIGHT           &trans
+    &shft_to_a LSHIFT 0 &kp ESCAPE          &kp D          		&kp LCTRL   		&mo NAVH  		        &kp LEFT		    &kp DOWN            &kp UP      	    &kp RIGHT           &trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
     &kp LALT            &trans			    &m_lakp MAIN C	    &trans			    &trans      	        &kp C_PLAY_PAUSE    &trans	        	&trans      		&trans      	    &trans
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
