@@ -54,21 +54,6 @@
             #binding-cells = <0>;
             bindings = <&to MAIN>, <&kp A>;
         };
- /* Macros to explicitly release all mods before sending Home/End */
-        m_home: m_home {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <&kp HOME>;
-        };
-        m_end: m_end {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <&kp END>;
-        };
     };
 
     combos {
@@ -130,12 +115,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-    	  /* LEFT ARROW LOGIC */
+    	/* --- LEFT ARROW -> HOME --- */
         hm_inner: hm_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LA(LEFT)>, <&m_home>; /* Use Macro here */
-            mods = <(MOD_LCTL|MOD_RCTL)>;
+            /* Trigger on Ctrl AND include Alt so both are masked */
+            bindings = <&kp LA(LEFT)>, <&kp HOME>;
+            mods = <(MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT)>;
             keep-mods = <0>;
         };
 
@@ -147,12 +133,12 @@
             keep-mods = <0>;
         };
 
-        /* RIGHT ARROW LOGIC */
+        /* --- RIGHT ARROW -> END --- */
         ed_inner: ed_inner {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LA(RIGHT)>, <&m_end>; /* Use Macro here */
-            mods = <(MOD_LCTL|MOD_RCTL)>;
+            bindings = <&kp LA(RIGHT)>, <&kp END>;
+            mods = <(MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT)>;
             keep-mods = <0>;
         };
 
