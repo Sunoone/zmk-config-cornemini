@@ -143,9 +143,9 @@
 // ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
     &kp DELETE		    &trans			    &trans			    &trans			    &trans			        &trans	  	    	&trans	    	    &m_lakp MAIN I 		&m_lakp MAIN O      &trans
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp_to_a LSHIFT 0   &kp ESCAPE          &kp D          		&kp LCTRL   		&kp TAB  		        &kp LEFT     	    &kp DOWN            &kp UP      	    &kp RIGHT           &sl NAV_HOME
+    &kp_to_a LSHIFT 0   &kp ESCAPE          &kp D          		&kp LCTRL   		&kp TAB  		        &trans              &kp LEFT    	    &kp RIGHT           &kp DOWN      	    &kp UP
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp LALT            &trans			    &m_lakp MAIN C	    &trans			    &trans      	        &trans              &trans	        	&trans      		&trans      	    &trans
+    &kp LALT            &trans			    &m_lakp MAIN C	    &trans			    &trans      	        &trans              &trans	        	&trans      		&trans      	    &sl NAV_HOME
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
 					    			        &trans  		    &trans         	    &ltl NAV MAIN           &trans       	    &trans 	            &kp F4
 //      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
@@ -173,11 +173,11 @@
 			display-name = "Symbols";
 			bindings = <
 // ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
-    &kp LBKT			&kp LBRC		    &kp LPAR  			&kp LT              &kp DELETE              &kp BACKSPACE      	&kp QUESTION  	    &kp PLUS            &kp PERCENT         &kt LSHFT
+    &kp LBKT			&kp LBRC		    &kp LPAR  			&kp LT              &kp DELETE              &kp QUESTION      	&kp MINUS    	    &kp PLUS            &kp PERCENT         &kt LSHFT
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp LBKT   	        &kp RBRC       		&kp RPAR  		    &kp GT   		    &kp DOUBLE_QUOTES       &kp STAR        	&kp MINUS           &kp EQUAL           &mo NUM             &kp SLASH
+    &kp LBKT   	        &kp RBRC       		&kp RPAR  		    &kp GT   		    &kp DOUBLE_QUOTES       &kp EXCLAMATION     &kp BACKSPACE       &kp EQUAL           &mo NUM             &kp SLASH
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp RETURN           &kp GRAVE           &kp DOLLAR		    &kp COLON     	    &kp SINGLE_QUOTE        &kp RETURN 	        &kp EXCLAMATION     &kp CARET           &kp AMPERSAND       &kp SPACE
+    &kp RETURN           &kp GRAVE           &kp DOLLAR		    &kp COLON     	    &kp SINGLE_QUOTE        &kp RETURN 	        &kp STAR            &kp CARET           &kp AMPERSAND       &kp SPACE
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
 					    			        &trans  		    &trans         	    &ltl NAV MAIN           &trans      	    &trans 	            &trans
 //      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
