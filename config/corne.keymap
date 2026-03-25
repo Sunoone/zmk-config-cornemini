@@ -175,9 +175,9 @@
 // ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━ Left-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮   ╭━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━ Right-side ━━━━┬━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━╮
     &kp LBKT			&kp LBRC		    &kp LPAR  			&kp LT              &kp DELETE              &kp BACKSPACE      	&kp QUESTION  	    &kp PLUS            &kp PERCENT         &kt LSHFT
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp LBKT   	        &kp RBRC       		&kp RPAR  		    &kp GT   		    &kp DOUBLE_QUOTES       &kp STAR        	&kp MINUS           &kp EQUAL           &mo NUM             &kp SPACE
+    &kp LBKT   	        &kp RBRC       		&kp RPAR  		    &kp GT   		    &kp DOUBLE_QUOTES       &kp STAR        	&kp MINUS           &kp EQUAL           &mo NUM             &kp SLASH
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &kp SLASH           &kp GRAVE           &kp DOLLAR		    &kp COLON     	    &kp SINGLE_QUOTE        &kp RETURN 	        &kp EXCLAMATION     &kp CARET           &kp AMPERSAND       &kp RETURN
+    &kp RETURN           &kp GRAVE           &kp DOLLAR		    &kp COLON     	    &kp SINGLE_QUOTE        &kp RETURN 	        &kp EXCLAMATION     &kp CARET           &kp AMPERSAND       &kp SPACE
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
 					    			        &trans  		    &trans         	    &ltl NAV MAIN           &trans      	    &trans 	            &trans
 //      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
