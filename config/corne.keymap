@@ -46,7 +46,7 @@
         combo_toggle_shft {
             timeout-ms = <50>;
             key-positions = <32 35>;
-            bindings = <&kt LSHFT>;
+            bindings = <&tog CAPS>;
         };
     };
 
