@@ -73,7 +73,7 @@
         ht_nav: ht_nav {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "tap-unless-interrupted";
             tapping-term-ms = <200>;
             bindings = <&hold_nav_mod>, <&kp>;
         };
