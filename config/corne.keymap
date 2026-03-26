@@ -83,7 +83,7 @@
             flavor = "tap-unless-interrupted";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
-        }
+        };
     };
 
     keymap {
