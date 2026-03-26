@@ -37,22 +37,7 @@
 
 / {
     macros {
-       hold_nav_mod: hold_nav_mod {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            wait-ms = <10>; // Small buffer to ensure HID reports clear
-            tap-ms = <10>;
-            bindings
-                = <&macro_tap &none>
-                , <&macro_press &mo NAV>
-                , <&macro_param_1to1>
-                , <&macro_press &kp MACRO_PLACEHOLDER>
-                , <&macro_pause_for_release>
-                , <&macro_param_1to1>
-                , <&macro_release &kp MACRO_PLACEHOLDER>
-                , <&macro_release &mo NAV>
-                ;
-        };
+
     };
 
     combos {
@@ -83,14 +68,6 @@
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COMMA>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        hmt_nav: hmt_nav {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
-            tapping-term-ms = <200>;
-            require-prior-idle-ms = <200>;
-            bindings = <&hold_nav_mod>, <&kp>;
         };
         ht: ht {
             compatible = "zmk,behavior-hold-tap";
@@ -130,7 +107,7 @@
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
     &mo NAV_SHFT        &kp ESCAPE          &trans         		&mo NAV_CTRL     	&kp TAB  		        &kp LEFT       	    &kp DOWN      	    &kp UP              &kp RIGHT           &sl SYSTEM
 // ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┣━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫
-    &hold_nav_mod LALT  &trans			    &trans      	    &trans			    &trans      	        &trans              &to MAIN	        &trans      		&trans      	    &trans
+    &kp LALT            &trans			    &trans      	    &trans			    &trans      	        &trans              &to MAIN	        &trans      		&trans      	    &trans
 // ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┫   ┗━━━━━━━━━━━━━━━━━━━╊━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┫
 					    			        &trans  		    &trans         	    &trans                  &kp RETURN          &kt RSHFT           &kp F4
 //      			                       ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛
